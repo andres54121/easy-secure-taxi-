@@ -1,0 +1,53 @@
+image: node:16.13.0
+stages:
+  - install
+  # - build
+  - deploy
+
+install:
+  stage: install
+  script:
+    - npm install -g @angular/cli@12.1.4
+    - npm install -g cordova
+    - npm install -g capacitor
+    - npm install -g ionic
+    - npm install --force
+    - npm install gh-pages --force
+  artifacts:
+    expire_in: 10h
+    paths:
+      - node_modules/
+
+# build:
+#   stage: build
+#   dependencies:
+#     - install
+#   script:
+#     # - ionic build --prod -- --base-href https://idygs101.gitlab.io/easy-secure-taxi/
+#     # - npx angular-cli-ghpages --dir=www
+#     - npm run build
+#   artifacts:
+#     expire_in: 1h
+#     paths:
+#       - www/
+#   only:
+#     - main
+
+pages:
+  stage: deploy
+  dependencies:
+    - install
+  script:
+  - npm run build
+  - gh-pages -d build
+  # - mkdir public
+  # - mv www/* public
+  # - cp public/index.html public/404.html
+  # artifacts:
+  #   paths:
+  #   - public/
+  # environment :
+  #   name: production
+  only:
+  - main
+  # - pages

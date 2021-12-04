@@ -1,0 +1,34 @@
+<app-menu  titulo="En viaje"></app-menu>
+
+<ion-content>
+  <div #mapElement class="mapT"></div>
+
+  <ion-card >
+    <ion-list>
+      <ion-item>
+        <ion-label>Distancia del viaje:
+          {{ distancia.text }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tiempo de llegada de su taxi a su ubicación <br>
+          {{ tiempoTaxi.text }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Costo Total: ${{ servicio.precio }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" (click)="chat()" expand="block">
+          Chat
+        </ion-button>
+        <ion-button type="submit" (click)="cancelServicio(idServicio)" expand="block" color="secondary">
+          Cancelar Viaje
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,22 @@
+<app-header titulo="Chat {{ userTaxi }}"></app-header>
+
+<ion-content #content padding id="content" [scrollEvents]="true">
+  <ion-card *ngFor="let message of messages" class="{{ message.css || 'card2'}}">
+    <ion-card-content>
+      {{message.mensaje}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<div #contentEnd id="content-end"></div>
+<ion-footer>
+  <ion-toolbar>
+    <ion-input placeholder="escribe algo..." [(ngModel)]="message">
+      <ion-button icon-left end (click)="sendMessage()">
+        <ion-icon name="send"></ion-icon>
+        Enviar
+      </ion-button>
+    </ion-input>
+  </ion-toolbar>
+  <!-- <ion-button (click)="scrollToBottom()"> Scroll To Bottom </ion-button> -->
+</ion-footer>

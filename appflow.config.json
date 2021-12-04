@@ -1,0 +1,9 @@
+{
+  "apps":
+  [
+      {
+          "appId": "e686669f",
+          "root": "apps/my-app1"
+      }
+  ]
+}

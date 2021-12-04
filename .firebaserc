@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "easytaxi-cfb51": {
+      "hosting": {
+        "app": [
+          "easytaxi-cfb51"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "easytaxi-cfb51"
+  }
+}

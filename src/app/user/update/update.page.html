@@ -1,0 +1,41 @@
+<app-header titulo="Actualizar Perfil" ></app-header>
+
+<ion-content  class="card-background-page fondo" >
+  <form [formGroup]="perfilForm" class="ion-padding" (ngSubmit)="submitForm()" novalidate>
+
+    <ion-card>
+      <div id="preview">
+        <img src="{{img2}}"/>
+        <img class="logo" src="{{img_new}}" *ngIf="img_new!==''"/>
+      </div>
+      <label for="apply" >
+        <input type="file" accept=".png, .jpg" (change)="onUpload($event)" id="apply" >Cambiar Foto
+      </label>
+    </ion-card>
+
+
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-textarea type="text" formControlName="Nombre"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">N° Telefono</ion-label>
+      <ion-input type="tel" formControlName="Tel" maxlength=10></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
+      Mobile number is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern">
+      Only numerical values allowed.
+    </span>
+    <ion-button shape="round" color="primary"
+    expand="block" [disabled]="!perfilForm.valid"
+    (click)="verificar(imageUser.value)">Actualizar</ion-button>
+
+    <!-- no tocar, no borrar -->
+    <input [value]="urlImage | async" formControlName="IMG"
+      name="urlIMG"  #imageUser>
+    <!--  -->
+  </form>
+</ion-content>

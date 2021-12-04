@@ -1,0 +1,54 @@
+<app-menu titulo="Perfil" ></app-menu>
+
+<ion-content [fullscreen]="true">
+
+  <ion-fab vertical="start" horizontal="end" edge slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="settings"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <!-- Boton para editar -->
+      <ion-fab-button color="tertiary" (click)="onEdit()">
+        <ion-icon name="brush-outline"></ion-icon>
+      </ion-fab-button>
+      <!-- Boton para cerrar sesion -->
+      <ion-fab-button color="danger"  (click)="onLogout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-item>
+    <ion-card mode="ios" text-center class="hide-card" class="ion-padding" id="tm">
+      <img src="{{usuario.photoURL}}" class="custom-avatar"/>
+      <ion-card-title color="medium">{{usuario.name || 'Usuario Nuevo'}} {{usuario.lastname || ''}}<hr color="primary-tint"></ion-card-title>
+    </ion-card>
+  </ion-item>
+
+
+ <ion-item>
+  <ion-card mode="ios" class="wea" class="ion-padding">
+    <ion-card-header>
+      <ion-card-title color="medium" class="nom">Correo<hr color="primary-tint" class="co"></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+     <ion-label color="primary">{{usuario.email}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+ </ion-item>
+
+
+ <ion-item>
+  <ion-card mode="ios" class="wea" class="ion-padding">
+    <ion-card-header>
+      <ion-card-title class="nume" color="medium">Numero Telefonico<hr color="primary-tint" class="nt"></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-label color="primary">{{usuario.tel || 'Sin Registrar'}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+ </ion-item>
+
+</ion-content>

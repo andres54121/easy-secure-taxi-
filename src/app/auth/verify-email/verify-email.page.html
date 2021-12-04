@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user$ | async as user">
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Verificar Cuenta</h1>
+      <p></p>
+    </div>
+    <div class="action-buttons ion-padding">
+      <p>Por favor revise su correo electrónico y haga clic en el enlace para verificar su dirección de correo electrónico.</p>
+      <ion-button type="submit" class="login-button" (click)="onSendEmail()" expand="block">Reenviar correo</ion-button>
+      <ion-button class="login-button2" routerLink="/login" expand="block">Iniciar Sesión</ion-button>
+    </div>
+  </div>
+</ion-content>

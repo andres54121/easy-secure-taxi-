@@ -1,0 +1,62 @@
+<app-menu titulo="Taxista Disponibles"></app-menu>
+
+<ion-content [scrollEvents]="false">
+
+  <div #mapElement class="mapT"></div>
+  <!-- <ion-button type="submit" (click)="newService()" expand="block">Crear</ion-button> -->
+</ion-content>
+
+<ion-content [scrollEvents]="true">
+
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-label>Distancia del viaje: {{ datosRutaC.distanciaT }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tiempo de llegada: {{ datosRutaC.tiempoT }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Costo Total: ${{ datosRutaC.precio }}</ion-label>
+      </ion-item>
+
+      <ion-button type="submit" (click)="ordenar()" expand="block">
+        Ordenar Taxistas
+      </ion-button>
+    </ion-list>
+  </ion-card>
+
+  <ion-card *ngFor="let taxi of taxis">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{taxi.photoURL}}">
+      </ion-avatar>
+      <h2> {{taxi.displayName}}</h2>
+    </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Distancia hasta su ubicación: {{taxi.distancia.text}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tiempo de llegada a su ubicacion: {{taxi.tiempo.text}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tiempo total hasta su destino: {{ formatoTiempo(taxi) }} min</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" (click)="dibujarRuta(taxi.rutaT)" expand="block">
+          Ver ruta
+        </ion-button>
+        <ion-button type="submit" (click)="newService(taxi)" expand="block" color="secondary">
+          Empezar ruta con este taxista
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

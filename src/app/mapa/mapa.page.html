@@ -1,0 +1,14 @@
+<app-menu  titulo="MAPA"></app-menu>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="directionForm" (ngSubmit)="calculateAndDisplayRoute(directionForm.value)">
+    <ion-item>
+      <!-- <ion-input placeholder="Inico de ruta" formControlName="source" autocomplete="on"></ion-input> -->
+      <ion-input placeholder="Destino" formControlName="destination" autocomplete="on"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" [disabled]="directionForm.invalid">Generar Ruta
+    </ion-button>
+  </form>
+  <div #mapElement class="map"></div>
+</ion-content>
+

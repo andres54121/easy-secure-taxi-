@@ -1,0 +1,34 @@
+<ion-content>
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>¡Bienvenido De Nuevo!</h1>
+    </div>
+    <div class="login-form ion-padding">
+      <div class="form-input">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-item lines="full">
+          <ion-label class="label" position="floating">Correo</ion-label>
+          <ion-input type="text" placeholder="Email" #email required></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-item lines="full">
+          <ion-label class="label" position="floating">Contraseña</ion-label>
+          <ion-input type="password" placeholder="Password" #password required></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="action-buttons ion-padding">
+      <ion-button class="login-button" type="submit" (click)="onLogin(email,
+        password)" expand="block">Login</ion-button>
+      <a [routerLink]="['/forgot-password']" class="small-text a1">¿Olvidó su contraseña?</a>
+
+      <!-- <ion-button class="login-button" type="submit" color="danger" (click)="onLoginGoogle()" expand="block">
+        <ion-icon name="logo-google-playstore"></ion-icon>
+        <hr> Iniciar con Google
+      </ion-button> -->
+      <a class="a1" routerLink="/registration">Crea una cuenta </a>
+    </div>
+  </div>
+</ion-content>
